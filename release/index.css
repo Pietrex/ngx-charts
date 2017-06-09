@@ -4,7 +4,6 @@
  * Licensed under MIT
  */
 .ngx-charts {
-  float: left;
   overflow: visible; }
   .ngx-charts .circle,
   .ngx-charts .bar,

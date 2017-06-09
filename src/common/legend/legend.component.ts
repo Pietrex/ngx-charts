@@ -8,7 +8,7 @@ import {
   selector: 'ngx-charts-legend',
   template: `
     <div [style.width.px]="width">
-      <header class="legend-title">
+      <header *ngIf="title.length" class="legend-title">
         <span class="legend-icon icon-eye"></span>
         <span class="legend-title-text">{{title}}</span>
       </header>
