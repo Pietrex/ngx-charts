@@ -17,6 +17,7 @@ var LineChartComponent = (function (_super) {
     function LineChartComponent() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.legendTitle = 'Legend';
+        _this.legendPosition = 'Right';
         _this.showGridLines = true;
         _this.curve = curveLinear;
         _this.activeEntries = [];
@@ -45,6 +46,7 @@ var LineChartComponent = (function (_super) {
             showXLabel: this.showXAxisLabel,
             showYLabel: this.showYAxisLabel,
             showLegend: this.legend,
+            legendPosition: this.legendPosition,
             legendType: this.schemeType
         });
         if (this.timeline) {
@@ -233,12 +235,14 @@ var LineChartComponent = (function (_super) {
             scaleType: this.schemeType,
             colors: undefined,
             domain: [],
-            title: undefined
+            title: undefined,
+            position: undefined
         };
         if (opts.scaleType === 'ordinal') {
             opts.domain = this.seriesDomain;
             opts.colors = this.colors;
             opts.title = this.legendTitle;
+            opts.position = this.legendPosition;
         }
         else {
             opts.domain = this.yDomain;
@@ -311,6 +315,7 @@ LineChartComponent.ctorParameters = function () { return []; };
 LineChartComponent.propDecorators = {
     'legend': [{ type: Input },],
     'legendTitle': [{ type: Input },],
+    'legendPosition': [{ type: Input },],
     'xAxis': [{ type: Input },],
     'yAxis': [{ type: Input },],
     'showXAxisLabel': [{ type: Input },],

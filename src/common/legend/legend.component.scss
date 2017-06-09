@@ -89,4 +89,22 @@
     white-space: nowrap;
     text-overflow: ellipsis;
   }
+
+  &.top {
+      .legend-wrap {
+        width: 100%;
+      }
+      .legend-title {
+        margin-left: 0;
+        text-align: left;
+      }
+      .legend-labels {
+        text-align: center;
+        float: none;
+        background: none!important;
+      }
+      .legend-label {
+        float: left;
+      }
+  }
 }

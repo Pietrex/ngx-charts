@@ -64,6 +64,7 @@ export class AppComponent implements OnInit {
   gradient = false;
   showLegend = true;
   legendTitle = 'Legend';
+  legendPosition = 'top';
   showXAxisLabel = true;
   tooltipDisabled = false;
   xAxisLabel = 'Country';

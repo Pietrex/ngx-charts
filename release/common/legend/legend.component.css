@@ -65,3 +65,14 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; }
+  .chart-legend.top .legend-wrap {
+    width: 100%; }
+  .chart-legend.top .legend-title {
+    margin-left: 0;
+    text-align: left; }
+  .chart-legend.top .legend-labels {
+    text-align: center;
+    float: none;
+    background: none !important; }
+  .chart-legend.top .legend-label {
+    float: left; }

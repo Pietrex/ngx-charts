@@ -15,6 +15,19 @@ import { TooltipService } from '../tooltip';
   providers: [TooltipService],
   selector: 'ngx-charts-chart',
   template: `
+    <ngx-charts-legend
+      *ngIf="showLegend && legendType === 'legend' && legendOptions.position == 'top'"
+      class="chart-legend top"
+      [data]="legendOptions.domain"
+      [title]="legendOptions.title"
+      [colors]="legendOptions.colors"
+      [height]="view[1]"
+      [width]="legendWidth"
+      [activeEntries]="activeEntries"
+      (labelClick)="legendLabelClick.emit($event)"
+      (labelActivate)="legendLabelActivate.emit($event)"
+      (labelDeactivate)="legendLabelDeactivate.emit($event)">
+    </ngx-charts-legend>
     <div
       class="ngx-charts-outer"
       [style.width.px]="view[0]"
@@ -34,7 +47,7 @@ import { TooltipService } from '../tooltip';
         [width]="legendWidth">
       </ngx-charts-scale-legend>
       <ngx-charts-legend
-        *ngIf="showLegend && legendType === 'legend'"
+        *ngIf="showLegend && legendType === 'legend' && legendOptions.position != 'top'"
         class="chart-legend"
         [data]="legendOptions.domain"
         [title]="legendOptions.title"
@@ -91,7 +104,12 @@ export class ChartComponent implements OnChanges {
 
   update(): void {
     let legendColumns = 0;
-    if (this.showLegend) {
+    if (this.showLegend && this.legendOptions.position === 'top') {
+      this.chartWidth = this.view[0];
+      this.legendWidth = this.view[0];
+      this.legendType = this.getLegendType();
+      return;
+    } else if (this.showLegend) {
       this.legendType = this.getLegendType();
 
       if (this.legendType === 'scaleLegend') {

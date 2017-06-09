@@ -153,6 +153,7 @@ export class LineChartComponent extends BaseChartComponent {
 
   @Input() legend;
   @Input() legendTitle: string = 'Legend';
+  @Input() legendPosition: string = 'Right';
   @Input() xAxis;
   @Input() yAxis;
   @Input() showXAxisLabel;
@@ -223,6 +224,7 @@ export class LineChartComponent extends BaseChartComponent {
       showXLabel: this.showXAxisLabel,
       showYLabel: this.showYAxisLabel,
       showLegend: this.legend,
+      legendPosition: this.legendPosition,
       legendType: this.schemeType
     });
 
@@ -442,12 +444,14 @@ export class LineChartComponent extends BaseChartComponent {
       scaleType: this.schemeType,
       colors: undefined,
       domain: [],
-      title: undefined
+      title: undefined,
+      position: undefined
     };
     if (opts.scaleType === 'ordinal') {
       opts.domain = this.seriesDomain;
       opts.colors = this.colors;
       opts.title = this.legendTitle;
+      opts.position = this.legendPosition;
     } else {
       opts.domain = this.yDomain;
       opts.colors = this.colors.scale;
