@@ -97,7 +97,7 @@ export class BaseChartComponent implements OnChanges, AfterViewInit, OnDestroy {
       // Get the container dimensions
       const dims = hostElem.parentNode.getBoundingClientRect();
       width = dims.width;
-      height = dims.height;
+      height = 410;//dims.height; fixed, because each view was increasing height
     }
 
     if (width && height) {

@@ -66,7 +66,7 @@ var BaseChartComponent = (function () {
             // Get the container dimensions
             var dims = hostElem.parentNode.getBoundingClientRect();
             width = dims.width;
-            height = dims.height;
+            height = 410; //dims.height; fixed, because each view was increasing height
         }
         if (width && height) {
             return { width: width, height: height };

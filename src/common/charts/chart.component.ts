@@ -15,7 +15,11 @@ import { TooltipService } from '../tooltip';
   providers: [TooltipService],
   selector: 'ngx-charts-chart',
   template: `
-    <ngx-charts-legend
+    <div
+      class="ngx-charts-outer"
+      [style.width.px]="view[0]"
+      [@animationState]="'active'">
+      <ngx-charts-legend
       *ngIf="showLegend && legendType === 'legend' && legendOptions.position == 'top'"
       class="chart-legend top"
       [data]="legendOptions.domain"
@@ -28,10 +32,6 @@ import { TooltipService } from '../tooltip';
       (labelActivate)="legendLabelActivate.emit($event)"
       (labelDeactivate)="legendLabelDeactivate.emit($event)">
     </ngx-charts-legend>
-    <div
-      class="ngx-charts-outer"
-      [style.width.px]="view[0]"
-      [@animationState]="'active'">
       <svg
         class="ngx-charts"
         [attr.width]="chartWidth"
